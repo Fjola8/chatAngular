@@ -1,0 +1,23 @@
+<div>
+	<div class="row">
+		<div class="col-xs-12">
+			<label>Username:</label>
+			<input type="text" 
+				np-model="user" />  <!--user verður gildir sem verða á scope-objectunum-->
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<button ng-click="onLoigin()">Sign in</button>
+		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			{{errorMessage}}
+		</div>
+	</div>
+
+</div>

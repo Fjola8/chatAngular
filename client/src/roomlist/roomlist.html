@@ -1,0 +1,7 @@
+<ul>
+	<!--forlkykkja: room = i , roomlist = nafnið á scope breytunni -->
+	<li ng-repeat="room in roomlist">
+		<a ng-href="#/rooms/{{room.id}}">{{room.name}}</a>
+		<!--erum svo með annan controller sem sér um að birta þetta eina tiltekna herbergi, sem hlustar á route-ið rooms/id. Er í room-->
+	</li>
+</ul>
