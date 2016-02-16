@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "angular-route": "^1.5.0",
+    "gulp": "^3.9.1",
     "socket.io-client": "^0.9.16"
   }
 }
