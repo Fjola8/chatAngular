@@ -5,9 +5,11 @@
 
 		<script src="bower_components/angular/angular.min.js"></script>
 		<script src="bower_components/angular-route/angular-route.min.js"></script>
-		
+
 		<script src="src/app.js"></script>
 		<script src="src/login/loginController.js"></script>
+		<script src="src/services/sockets.js"></script>
+		<script src="node_modules/socket.io-client/dist/socket.io.min.js"></script>
 	</head>
 	<body>
 		<div ng-view> <!--það svæði sem verður replace-að efti því hvað kemur í urlinu hjá notandanum - Við þurfum að skilgreina fyrir hvaða url á að nota hvaða html síðu og passar við hvaða controller-->
