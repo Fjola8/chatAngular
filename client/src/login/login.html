@@ -1,15 +1,18 @@
+<h2>Welcome to chat! Please login</h2>
+
 <div>
 	<div class="row">
 		<div class="col-xs-12">
 			<label>Username:</label>
 			<input type="text" 
-				np-model="user" />  <!--user verður gildir sem verða á scope-objectunum-->
+				ng-model="user" />  <!--user verður gildir sem verða á scope-objectunum-->
+
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-xs-12">
-			<button ng-click="onLoigin()">Sign in</button>
+			<button ng-click="onLogin()">Sign in</button>
 		
 		</div>
 	</div>

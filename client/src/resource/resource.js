@@ -5,6 +5,7 @@ angular.module("chatApp").factory("ChatResource",
 		return {			//interface-ið á því að tala við bakenda
 			login: function login(user, callback){ //þau föll í bakendanum sem við ætlum að geta kallað inn
 				//TODO: útfærsla 
+				//senda upplýsingar yfir á socket.io server að þessi notandi vilji add sér við chattið
 			},
 
 			getRoomList: function getRoomList(callback){ //annaðhvort að láta fallið skila objecti eða gera callback
