@@ -2,8 +2,10 @@
 //	function RoomlistController($scope, socket){
 
 
-angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams", function ($scope, socket, $location, $routeParams) {
+angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams", 
+  function ($scope, socket, $location, $routeParams) {
 
+//þegar þessi event kemur frá server viltu þá kalla í þetta function
   socket.on("roomlist", function(rooms) {
     $scope.roomlist = rooms;
   });
