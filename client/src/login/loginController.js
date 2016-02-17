@@ -12,20 +12,17 @@ angular.module("chatApp").controller("LoginController", ["$scope", "socket", "$l
 		$scope.errorMessage = "";
 
 		$scope.onLogin = function onLogin(){
-
 		socket.emit("adduser", $scope.user, function(success, error){
-
 			if (success) 
                 {
-                  //  $rootScope.user = user;
-                  //  $location.path("/roomlist/" + $scope.user);
-                    console.log("Hallo");
+                   // $rootScope.user = user;
+                    $location.path("/roomlist/"/* + $scope.user*/);
+                    //console.log("Hallo");
                 } 
                 else 
                 {
                     $scope.errorMessage = "This username is already taken!";
                 }
-
 		});
 
 		};

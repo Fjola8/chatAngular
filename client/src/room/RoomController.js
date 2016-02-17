@@ -5,3 +5,4 @@ angular.module("chatApp").controller("RoomController",
 		var id = $routeParams.id; 
 		//svo í app.js --> .when("/rooms/:id", {..}) - :id og routeParams.id þarf að passa
 	});
+
