@@ -12,11 +12,11 @@ angular.module("chatApp", ["ngRoute"]).config(["$routeProvider",
 		templateUrl: "src/login/login.html",
 		controller: "LoginController"
 	})
-	.when("/roomlist", { 
+	.when("/roomlist/:user", { 
 		templateUrl: "src/roomlist/roomlist.html",
 		controller: "RoomlistController"
 	})
-	.when("/room", { 
+	.when("/room/:user/:ID", { 
 		templateUrl: "src/room/room.html",
 		controller: "RoomController"
 	})

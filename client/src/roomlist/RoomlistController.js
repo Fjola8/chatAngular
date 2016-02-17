@@ -1,9 +1,7 @@
-//angular.module("chatApp").controller("RoomlistController", 
-//	function RoomlistController($scope, socket){
-
-
+//routeParams.user er notaði í staðinn fyrir að taka user beint inn
+// í  logincontroller senudm við userinn inn með :user og þá er hægt að kalla í hann með route...
 angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams", 
-  function ($scope, socket, $location, $routeParams) {
+	function ($scope, socket, $location, $routeParams) {
 
 //þegar þessi event kemur frá server viltu þá kalla í þetta function
   socket.on("roomlist", function(rooms) {
