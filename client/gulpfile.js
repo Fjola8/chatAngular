@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 gulp.task('minify', function () {
    return gulp.src('src/**/*.js')
-      .pipe(uglify())
+    //  .pipe(uglify())
       .pipe(concat('app.min.js'))
       .pipe(gulp.dest('build'));
 });

@@ -24,9 +24,7 @@ angular.module("chatApp").controller("LoginController", ["$scope", "socket", "$l
                 {
 			        if (success)
                     {
-                        // $rootScope.user = user;
                         $location.path("/roomlist/" + $scope.user);
-                        //console.log("Hallo");
                     } 
                     else 
                     {
