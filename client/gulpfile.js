@@ -1,11 +1,11 @@
 var gulp = require('gulp'),
-   uglify = require('gulp-uglify'),
+  // uglify = require('gulp-uglify'),
    concat = require('gulp-concat'),
    jshint = require('gulp-jshint');
 
 gulp.task('minify', function () {
    return gulp.src('src/**/*.js')
-      .pipe(uglify())
+ //     .pipe(uglify())
       .pipe(concat('app.min.js'))
       .pipe(gulp.dest('build'));
 });
