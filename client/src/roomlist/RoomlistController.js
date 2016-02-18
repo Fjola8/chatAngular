@@ -7,6 +7,7 @@ angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", 
   socket.on("roomlist", function(rooms) {
     $scope.roomlist = rooms;
   });
+  
   socket.emit("rooms");
 
   $scope.errorMessage = '';
@@ -28,10 +29,11 @@ angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", 
     });
   };
 
-  socket.on('userlist', function(users) {
+  socket.emit("users");
+  socket.on("userlist", function(users) {
     $scope.activeUsers = users;
   });
-  socket.emit("users");
+  
 
 }]);
 
