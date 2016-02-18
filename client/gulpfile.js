@@ -1,11 +1,13 @@
 var gulp = require('gulp'),
-  // uglify = require('gulp-uglify'),
+   ngAnnotate = require('gulp-ng-annotate');
+   uglify = require('gulp-uglify'),
    concat = require('gulp-concat'),
-   jshint = require('gulp-jshint');
+   jshint = require('gulp-jshint'),
 
 gulp.task('minify', function () {
    return gulp.src('src/**/*.js')
- //     .pipe(uglify())
+   	  .pipe(ngAnnotate())
+   	  .pipe(uglify())
       .pipe(concat('app.min.js'))
       .pipe(gulp.dest('build'));
 });
@@ -15,7 +17,6 @@ gulp.task('jshint', function() {
 	    .pipe(jshint({
 	    	"curly":  true,
 		    "immed":  true,
-		    "newcap": true,
 		    "noarg":  true,
 		    "sub":    true,
 		    "boss":   true,

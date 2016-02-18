@@ -1,30 +1,33 @@
 <h2>Roomlist</h2>
 
-<ul>
-  <li>
-    <label>Room name:</label>
-    <input type="text" ng-model="roomName"/>
-    {{roomName}}
-  </li>
-  <li>
-    <button ng-click="newRoom()">Create room</button>
-  </li>
-</ul>
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Room name:</label>
+      <input type="text" ng-model="roomName"/>
+      <button ng-click="newRoom()">Create room</button>
+    </div>
+  </div>
 
-<ul>
-  <li ng-repeat="(name, room) in roomlist">
-    <a href ng-click="moveToRoom(name)">{{name}}</a>
-  </li>
-</ul>
-
-<div class="row">
-  <div class="col-xs-12">
-
-    <h2>Online Users</h2>
-<ul>
-  <li ng-repeat="item in activeUsers">
-    <a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
-  </li>
-</ul>
+  <div>
+    <ul>
+      <li ng-repeat="(name, room) in roomlist">
+        <a href ng-click="moveToRoom(name)">{{name}}</a>
+      </li>
+    <ul>
+  </div>
 </div>
-</div>
+
+<h3>Active users </h3>
+
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul>
+        <li ng-repeat="item in activeUsers">
+          <a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 
