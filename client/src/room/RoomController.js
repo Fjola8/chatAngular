@@ -7,7 +7,6 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
 		$scope.messageHistory = [];
 		$scope.currUsers = [];
 
-
 		socket.emit('joinroom', {'room': $scope.roomName});
 
 		socket.on('updateusers', function(room, users, ops) {
@@ -16,22 +15,32 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
             socket.emit('getUserChannels');
         });
 
+        /*// Fetch the chat history for the current room.
+            socket.on('updatechat', function(roomName, history) {
+                if ($scope.curUserChannels[roomName] !== undefined) {
+                    $scope.curUserChannels[roomName].messageHistory = history;
+                }
+            });*/
+
 		socket.on('updatechat', function(room, chatHistory){
 			$scope.messageHistory = chatHistory;
+			//$scope.roomName = room;
 		});
-
 
 		$scope.sendmsg = function() {
  		    socket.emit('sendmsg',{roomName: $scope.roomName, msg:$scope.message});
  		    $scope.message = null; //hreinsa textabox
 		};	
 
-		
-
         $scope.leaveRoom = function(channel) {  
        //    $socket.emit('partroom', channel);       
            $location.path("/roomlist/" + $scope.currUser);       
         };
+
+        socket.emit("users");
+  		socket.on("userlist", function(users) {
+    	$scope.activeUsers = users;
+  		});
 
  }]);
 

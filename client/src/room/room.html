@@ -1,20 +1,20 @@
 <div>
 
-<h2>Nafn á chatti</h2>
+<h2>{{roomName}}</h2>
 
 	<div>
+		<h3>Users in room</h3>
 		<ul>
-			<li ng-repeat= "users in currentUsers"> </li>
-			 <div> {{user.name}}</div>
-		</ul>
+			<li ng-repeat="item in activeUsers">
+   		 	<a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
+  			</li>
+  		</ul>
 	</div>
 
 	<div class="row">
 		<div class="col-xs-12">
 			<label>Message:</label>
 			<input type="text" ng-model="message"/>
-			{{message}}
-
 		</div>
 	</div>
 
@@ -25,22 +25,19 @@
 	</div>
 
 	
-
  	<div class="row">
 		<div class="col-xs-12">
-      <ul>
-      <li ng-repeat="message in messageHistory">
-        <div> {{message.nick}}</div>
-        <div style="color:blue;"> {{message.message}}</div>
-      </li>
-   		 </ul>
+     		<ul>
+     			<li ng-repeat="message in messageHistory">
+      			<div> {{message.nick}}</div>
+      			<div style="color:blue;"> {{message.message}}</div>
+    			</li>
+   			</ul>
 		</div>
 
 	<div class="col-xs-12">
     	<button ng-click="leaveRoom()">Leave</button>
     </div>
-
-
 
 </div>
 
