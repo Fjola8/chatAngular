@@ -1,6 +1,14 @@
 <div>
 
 <h2>Nafn á chatti</h2>
+
+	<div>
+		<ul>
+			<li ng-repeat= "users in currentUsers"> </li>
+			 <div> {{user.name}}</div>
+		</ul>
+	</div>
+
 	<div class="row">
 		<div class="col-xs-12">
 			<label>Message:</label>
@@ -16,17 +24,24 @@
 		</div>
 	</div>
 
-  <div class="row">
+	
+
+ 	<div class="row">
 		<div class="col-xs-12">
       <ul>
       <li ng-repeat="message in messageHistory">
         <div> {{message.nick}}</div>
         <div style="color:blue;"> {{message.message}}</div>
       </li>
-    </ul>
+   		 </ul>
 		</div>
 
-  
-	</div>
+	<div class="col-xs-12">
+    	<button ng-click="leaveRoom()">Leave</button>
+    </div>
 
 
+
+</div>
+
+	

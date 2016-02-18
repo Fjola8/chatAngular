@@ -3,18 +3,36 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
 
 		$scope.message = ""
 		$scope.roomName = $routeParams.roomID;
+		$scope.currUser = $routeParams.user;
 		$scope.messageHistory = [];
+		$scope.currUsers = [];
+
 
 		socket.emit('joinroom', {'room': $scope.roomName});
+
+		socket.on('updateusers', function(room, users, ops) {
+            socket.emit('users');
+            socket.emit('rooms');
+            socket.emit('getUserChannels');
+        });
 
 		socket.on('updatechat', function(room, chatHistory){
 			$scope.messageHistory = chatHistory;
 		});
 
+
 		$scope.sendmsg = function() {
  		    socket.emit('sendmsg',{roomName: $scope.roomName, msg:$scope.message});
  		    $scope.message = null; //hreinsa textabox
 		};	
+
+		
+
+        $scope.leaveRoom = function(channel) {  
+       //    $socket.emit('partroom', channel);       
+           $location.path("/roomlist/" + $scope.currUser);       
+        };
+
  }]);
 
 
