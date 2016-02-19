@@ -1,4 +1,4 @@
-angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams", 
+angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams",
   function ($scope, socket, $location, $routeParams) {
 
       $scope.errorMessage = '';
@@ -10,14 +10,14 @@ angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", 
       socket.on("roomlist", function(rooms) {
           $scope.roomlist = rooms;
       });
-      
-      socket.emit("users");
-      socket.on('userlist', function(users) {
-          $scope.activeUsers = users;
-      });
+
 
       $scope.newRoom = function(){
-          socket.emit("joinroom", {"room": $scope.roomName});
+          if($scope.roomName === ""){
+              $scope.errorMessage = "You have to choose a room name before you continue!";
+          } else {
+              socket.emit("joinroom", {"room": $scope.roomName});
+          }
       };
 
       $scope.moveToRoom = function(name){

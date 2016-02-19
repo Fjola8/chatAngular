@@ -8,19 +8,19 @@ angular.module("chatApp", ["ngRoute"]).config(["$routeProvider",
 	function($routeProvider){
 
 	$routeProvider
-	.when("/login", { 
+	.when("/login", {
 		templateUrl: "src/login/login.html",
 		controller: "LoginController"
 	})
-	.when("/roomlist/:user", { 
+	.when("/roomlist/:user", {
 		templateUrl: "src/roomlist/roomlist.html",
 		controller: "RoomlistController"
 	})
-	.when("/room/:user/:ID", { 
+	.when("/room/:user/:room", {
 		templateUrl: "src/room/room.html",
 		controller: "RoomController"
 	})
 	.otherwise({
 		redirectTo: "/login"
 	});
-}])  
+}]);

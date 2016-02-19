@@ -1,8 +1,8 @@
-angular.module("chatApp").factory('socket', function ($rootScope) {
+angular.module("chatApp").factory('socket', ["$rootScope", function ($rootScope) {
   var socket = io.connect("http://localhost:8080");
   return {
     on: function (eventName, callback) {
-      socket.on(eventName, function () {  
+      socket.on(eventName, function () {
         var args = arguments;
         $rootScope.$apply(function () {
           callback.apply(socket, args);
@@ -17,7 +17,7 @@ angular.module("chatApp").factory('socket', function ($rootScope) {
             callback.apply(socket, args);
           }
         });
-      })
+    });
     }
   };
-});
+}]);
