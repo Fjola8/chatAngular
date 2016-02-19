@@ -36,5 +36,8 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
            $location.path("/roomlist/" + $scope.currUser);
         };
 
-
+		$scope.logOut = function() {
+            socket.emit('disconnectNow');
+            $location.path('/login');
+        };
  }]);
