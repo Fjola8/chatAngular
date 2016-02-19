@@ -34,8 +34,8 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
  		    $scope.message = null; //hreinsa textabox
 		};
 
-        $scope.leaveRoom = function(channel) {
-       //    $socket.emit('partroom', channel);
+        $scope.leaveRoom = function() {
+           socket.emit('partroom', $scope.roomName);
            $location.path("/roomlist/" + $scope.currUser);
         };
 
