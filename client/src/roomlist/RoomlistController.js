@@ -6,6 +6,11 @@ angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", 
       $scope.currentUser = $routeParams.user;
  //     $scope.roomlist = {};
 
+      socket.emit("users");
+      socket.on("userlist", function(users) {
+      $scope.activeUsers = users;
+      });
+
       socket.emit("rooms");
       socket.on("roomlist", function(rooms) {
           $scope.roomlist = rooms;
