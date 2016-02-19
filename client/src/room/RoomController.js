@@ -14,9 +14,9 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
             socket.emit('users');
             socket.emit('rooms');
             socket.emit('getUserChannels');
-						if(room == $scope.roomName){
-						$scope.currUsers = users;
-					}
+			if(room == $scope.roomName){
+				$scope.currUsers = users;
+			}
     	});
 
 			//messageHistory er til í server
