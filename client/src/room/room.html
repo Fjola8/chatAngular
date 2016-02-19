@@ -1,5 +1,7 @@
 <h2>{{roomName}}</h2>
+
 <div>
+
 	<div>
 		<h3>Users in room</h3>
 		<ul>
@@ -7,6 +9,24 @@
    		 	<a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
   			</li>
   		</ul>
+	</div>
+
+	<div>
+		<h3>Kick user</h3>
+		<ul>
+			<li ng-repeat="username in currUsers">
+				<a href ng-click="kickUser(username)">{{username}}</a>
+				</li>
+			</ul>
+	</div>
+
+	<div>
+		<h3>Ban user</h3>
+		<ul>
+			<li ng-repeat="username in currUsers">
+				<a href ng-click="banUser(username)">{{username}}</a>
+				</li>
+			</ul>
 	</div>
 
 	<div class="row">

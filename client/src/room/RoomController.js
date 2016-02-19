@@ -31,10 +31,47 @@ angular.module('chatApp').controller('RoomController', ["$scope", "socket", "$lo
  		    $scope.message = null; //hreinsa textabox
 		};
 
-        $scope.leaveRoom = function() {
-           socket.emit('partroom', $scope.roomName);
-           $location.path("/roomlist/" + $scope.currUser);
-        };
+    $scope.leaveRoom = function() {
+        socket.emit('partroom', $scope.roomName);
+        $location.path("/roomlist/" + $scope.currUser);
+    };
+
+		$scope.kickUser = function(username) {
+    socket.emit('kick', {'user': username, 'room': $scope.roomName}, function (available) {
+      if (available) {
+        console.log(username + " has been kicked out!");
+      }
+      else {
+        console.log(username + " has NOT been kicked out");
+      }
+    });
+  	};
+
+	//	io.sockets.emit('kicked', kickObj.room, kickObj.user, socket.username);
+		socket.on("kicked", function(roomName, user, ops) {
+    if($scope.roomName === roomName && $scope.currUser === user) {
+      $location.path("/roomlist/" + $scope.currUser + "/");
+    }
+    });
+
+		$scope.banUser = function(username) {
+			socket.emit("ban", {"user": username, "room": $scope.roomName}, function (available) {
+				if (available) {
+	        console.log(username + " has been banned from " + $scope.roomName);
+	      }
+	      else {
+	        console.log(username + " has NOT been banned!");
+	      }
+			});
+		};
+
+//io.sockets.emit('banned', banObj.room, banObj.user, socket.username);
+		socket.on("banned", function(roomName, user, ops) {
+			if($scope.roomName === roomName && $scope.currUser === user) {
+	      $location.path("/roomlist/" + $scope.currUser + "/");
+	    }
+		});
+
 
 		$scope.logOut = function() {
             socket.emit('disconnectNow');
