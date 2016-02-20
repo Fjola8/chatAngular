@@ -1,10 +1,12 @@
-<h2>Roomlist</h2>
 
-<div>
+<div class = "div1">
+
+<h2>Available rooms </h2>
+
   <div class="row">
     <form>
       <label>Room name:</label>
-      <input type="text" ng-model="roomName"/>
+      <input type="text" ng-model="roomName"/><br>
       <button ng-click="newRoom()">Create new room</button>
           <div>
               {{errorMessage}}
@@ -19,9 +21,11 @@
       </li>
     <ul>
   </div>
+</div> 
 </div>
 
-<h3>Active users </h3>
+<div class = "div2">
+<h2>Active users </h2>
 
 <div>
   <ul>
@@ -34,3 +38,5 @@
 <div class="logOut">
     <button ng-click="logOut()">Log out</button>
 </div>
+
+
