@@ -1,55 +1,35 @@
 
 <h2>{{roomName}}</h2>
 
-<div>
 <div class= "div1">
 	<div>
 		<h3>Users in room</h3>
 		<ul>
-			<li ng-repeat="item in currUsers">
-   		 	<a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
+			<li ng-repeat="username in currUsers">{{username}}
+				<button ng-click="kickUser(username)" ng-model="kickUser">Kick User</button>
+				<button ng-click="banUser(username)" ng-model="banUser">Ban User</button>
   			</li>
   		</ul>
 	</div>
 
-	<div>
-		<h3>Kick user</h3>
-		<ul>
-			<li ng-repeat="username in currUsers">
-				<a href ng-click="kickUser(username)">{{username}}</a>
-				</li>
-			</ul>
-	</div>
-
-	<div>
-		<h3>Ban user</h3>
-		<ul>
-			<li ng-repeat="username in currUsers">
-				<a href ng-click="banUser(username)">{{username}}</a>
-				</li>
-			</ul>
-	</div>
 	<div>
 		<label>Message:</label>
 		<input type="text" ng-model="message"/>
 	</div>
 
 	<div>
-
 		<button ng-click="sendmsg()">Send</button>
 	</div>
 
 </div>
 
 <div class="div2">
-	<div> 
-     		<ul>
-     			<li ng-repeat="message in messageHistory">
-      				<div> {{message.nick}}</div>
-      				<div style="color:blue;"> {{message.message}}</div>
-    			</li>
-   			</ul>
-	</div>
+	<ul>
+		<li ng-repeat="message in messageHistory">
+			<div> {{message.nick}}</div>
+			<div style="color:blue;"> {{message.message}}</div>
+		</li>
+	</ul>
 </div>
 
 <div class="div3">
@@ -60,5 +40,4 @@
 	<div class="logOut">
 	    <button ng-click="logOut()">Log out</button>
 	</div>
-</div>
 </div>

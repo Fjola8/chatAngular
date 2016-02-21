@@ -21,22 +21,21 @@
       </li>
     <ul>
   </div>
-</div> 
+</div>
 </div>
 
 <div class = "div2">
-<h2>Active users </h2>
+    <h2>Active users </h2>
 
-<div>
-  <ul>
-    <li ng-repeat="item in activeUsers">
-      <a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
-    </li>
-  </ul>
+    <div>
+      <ul>
+        <li ng-repeat="item in activeUsers">
+          <a href ng-click="moveToPrivateRoom(item)">{{item}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="logOut">
+        <button ng-click="logOut()">Log out</button>
+    </div>
 </div>
-
-<div class="logOut">
-    <button ng-click="logOut()">Log out</button>
-</div>
-
-
