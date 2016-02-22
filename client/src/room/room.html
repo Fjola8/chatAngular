@@ -6,8 +6,8 @@
 		<h3>Users in room</h3>
 		<ul>
 			<li ng-repeat="username in currUsers">{{username}}
-				<button ng-click="kickUser(username)" ng-model="kickUser">Kick User</button>
-				<button ng-click="banUser(username)" ng-model="banUser">Ban User</button>
+				<button class="kick" ng-click="kickUser(username)" ng-model="kickUser">Kick User</button>
+				<button class="kick" ng-click="banUser(username)" ng-model="banUser">Ban User</button>
   			</li>
   		</ul>
 	</div>

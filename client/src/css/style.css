@@ -14,6 +14,13 @@ button {
 	border-radius: 10px;
 	padding: 10px 20px;
 }
+button.kick {
+
+	width: 50px;
+    height: 20px;
+    padding: 5px 10px 10px 10px;
+}
+
 img {
 
 	height: auto; 
