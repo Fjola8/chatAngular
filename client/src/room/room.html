@@ -6,10 +6,13 @@
 		<h3>Users in room</h3>
 		<ul>
 			<li ng-repeat="username in currUsers">{{username}}
-				<button class="kick" ng-click="kickUser(username)" ng-model="kickUser">Kick User</button>
-				<button class="kick" ng-click="banUser(username)" ng-model="banUser">Ban User</button>
+				<button class="kick" ng-click="kickUser(username)" ng-model="kickUser">Kick</button>
+				<button class="kick" ng-click="banUser(username)" ng-model="banUser">Ban</button>
   			</li>
   		</ul>
+		<div>
+			{{errorMessage}}
+		</div>
 	</div>
 
 	<div>
@@ -25,6 +28,7 @@
 
 <div class="div2">
 	<ul>
+		<h3>Message History</h3>
 		<li ng-repeat="message in messageHistory">
 			<div> {{message.nick}}</div>
 			<div style="color:blue;"> {{message.message}}</div>

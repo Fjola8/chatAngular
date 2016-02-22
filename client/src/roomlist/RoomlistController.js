@@ -1,10 +1,9 @@
-angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", "$location", "$routeParams",
+angular.module("chatApp").controller("RoomlistController", ["$scope", "socket", "$location", "$routeParams",
   function ($scope, socket, $location, $routeParams) {
 
-      $scope.errorMessage = '';
-      $scope.roomName = '';
+      $scope.errorMessage = "";
+      $scope.roomName = "";
       $scope.currentUser = $routeParams.user;
- //     $scope.roomlist = {};
 
       socket.emit("users");
       socket.on("userlist", function(users) {
@@ -37,7 +36,7 @@ angular.module('chatApp').controller('RoomlistController', ["$scope", "socket", 
       };
 
       $scope.logOut = function() {
-          socket.emit('disconnectNow');
-          $location.path('/login');
+          socket.emit("disconnectNow");
+          $location.path("/login");
       };
 }]);

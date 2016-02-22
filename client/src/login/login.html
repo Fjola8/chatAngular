@@ -1,29 +1,18 @@
-
 <img src="src/login/chat_icon.jpg"/>
 
 <h2>Welcome to chat! Please login</h2>
 
 <div>
-	<div class="row">
-		<div class="col-xs-12">
-			<label>Username:</label>
-			<input type="text" 
-				ng-model="user" />  <!--user verður gildir sem verða á scope-objectunum-->
-
-		</div>
+	<div>
+		<label>Username:</label>
+		<input type="text" ng-model="user"/>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<button ng-click="onLogin()">Sign in</button>
-		
-		</div>
+	<div>
+		<button ng-click="onLogin()">Sign in</button>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			{{errorMessage}}
-		</div>
+	<div>
+		{{errorMessage}}
 	</div>
-
 </div>
